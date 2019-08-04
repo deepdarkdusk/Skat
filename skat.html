@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<h1>Skat Reiz Rechner</h1>
+<h3><p>x</p></h3>
+<p>x</p><p>x</p><p>x</p>
+<p>x</p><p>x</p>
+<p></p>
+<h4>|||Geben|||Hören|||Sagen|||Weitersagen|||</h4>
+<a>18-</a><a>20-</a><a>22-</a><a>23-</a><a>24-</a><a>27-</a><a>30-</a><a>33-</a><a>35-</a><a>36-</a>
+<a>40-</a><a>44-</a><a>45-</a><a>46-</a><a>48-</a><a>50-</a><a>54-</a><a>55-</a><a>59-</a><a>60-</a>
+<a>63-</a><a>66-</a><a>70-</a><a>72-</a><a>77-</a><a>84-</a><a>96-</a><a>120-</a><a>144-</a><a>168-</a>
+
+<script>
+var kreuz=0;
+    pik=0;
+    herz=0;
+    karo=0;
+    spiel=0;
+    wert=0;
+    hand=0;
+    offen=0;
+    art='';
+    code='';
+    i=0;
+   	
+kreuz = prompt('Kreuz-Bube vorhanden=1 sonst=0', '0');
+pik = prompt('Pik-Bube vorhanden=1 sonst=0', '0');
+herz = prompt('Herz-Bube vorhanden=1 sonst=0', '0');
+karo = prompt('Karo-Bube vorhanden=1 sonst=0', '0');
+code = (kreuz+pik+herz+karo)
+
+if (kreuz > 0) {
+    art = '  mit';
+} else {
+    art = ' ohne';
+}
+switch (code) {
+    case '1111':
+        spiel = 4;
+        break;
+    case '1110':
+        spiel = 3;
+        break;
+    case '1101':
+        spiel = 2;
+        break;
+    case '1100':
+        spiel = 2;
+        break;
+    case '1011':
+        spiel = 1;
+        break;
+    case '1010':
+        spiel = 1;
+        break;
+    case '1001':
+        spiel = 1;
+        break;
+    case '1000':
+        spiel = 1;
+        break;
+    case '0000':
+        spiel = 4;
+        break;
+    case '0001':
+        spiel = 3;
+        break;
+    case '0010':
+        spiel = 2;
+        break;
+    case '0011':
+        spiel = 2;
+        break;
+    case '0100':
+        spiel = 1;
+        break;
+    case '0101':
+        spiel = 1;
+        break;
+    case '0110':
+        spiel = 1;
+        break;
+    case '0111':
+        spiel = 1;
+        break;    
+}
+wert = (spiel + 1);
+hand = (wert +1);
+offen = (hand +1);
+
+document.getElementsByTagName('p')[0].innerHTML = 'Ihr Spiel lautet' +art + ' ' +spiel + ' Buben gespielt ' + wert;
+document.getElementsByTagName('p')[1].innerHTML ='Solo-------> '+ 'Karo :' + (wert*9)+' | '+'Herz :' + wert*10 + ' | '+'Pik  :' + wert*11+' | '+'Kreuz :' + wert*12;
+document.getElementsByTagName('p')[2].innerHTML ='Hand------> '+ 'Karo :' + (hand*9)+' | '+'Herz :' + hand*10 + ' | '+'Pik  :' + hand*11+' | '+'Kreuz :' + hand*12;
+document.getElementsByTagName('p')[3].innerHTML ='Ouvert----> '+ 'Karo :' + (offen*9)+' | '+'Herz :' + offen*10 + ' | '+'Pik  :' + offen*11+' | '+'Kreuz :' + offen*12;
+document.getElementsByTagName('p')[4].innerHTML ='Grand-----> '+ 'Solo :' + (wert*24)+' | '+'Hand :' + hand*24 + ' | '+'Ouvert :' + offen*24;
+document.getElementsByTagName('p')[5].innerHTML ='Null--------> '+ 'Solo :23' + ' | '+'Hand :35' + ' | '+'Ouvert :46' +' | '+'Ouvert Hand :59' ;
+
+</script>
+<h3><div onclick="document.getElementsByTagName('a')[i++].style.color ='orange';"> switch </div></h3>
+<h3><a href="skat.html"> Reset </a>
+</html>
+ 
+ 
