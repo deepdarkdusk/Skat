@@ -19,13 +19,13 @@ var j;
     code='';
     i=0;
     j=0;
-   
-    
+
+
 kreuz = prompt('Kreuz-Bube vorhanden=1 sonst=0', '0');
 pik = prompt('Pik-Bube vorhanden=1 sonst=0', '0');
 herz = prompt('Herz-Bube vorhanden=1 sonst=0', '0');
 karo = prompt('Karo-Bube vorhanden=1 sonst=0', '0');
-    
+
     code = (kreuz+pik+herz+karo)
 
 if (kreuz > 0) {
@@ -81,9 +81,9 @@ switch (code) {
         break;
     case '0111':
         spiel = 1;
-        break;    
+        break;
 }
-    
+
 wert = (spiel + 1);
 hand = (wert +1);
 offen = (hand +1);
@@ -95,15 +95,15 @@ document.getElementsByTagName('p')[3].innerHTML ='Ouvert---->'+ 'Karo :' + (offe
 document.getElementsByTagName('p')[4].innerHTML ='Grand----->'+ 'Solo :' + (wert*24)+' | '+'Hand :' + hand*24 + ' | '+'Ouvert :' + offen*24;
 document.getElementsByTagName('p')[5].innerHTML ='Null------->'+ 'Solo :23' + ' | '+'Hand :35' + ' | '+'Ouvert :46' +' | '+'Ouvert Hand :59' ;
 </script>
-    
+
 <h4>||Geben|</h4><h4>|Hören|</h4><h4>|Sagen|</h4><h4>|Weitersagen||</h4>
 <a>18-</a><a>20-</a><a>22-</a><a>23-</a><a>24-</a><a>27-</a><a>30-</a><a>33-</a><a>35-</a><a>36-</a>
 <a>40-</a><a>44-</a><a>45-</a><a>46-</a><a>48-</a><a>50-</a><a>54-</a><a>55-</a><a>59-</a><a>60-</a>
 <a>63-</a><a>66-</a><a>70-</a><a>72-</a><a>77-</a><a>84-</a><a>96-</a><a>120-</a><a>144-</a><a>168-</a>
-<p></p>    
+<p></p>
 <button type="button" onclick="document.getElementsByTagName('a')[i++].style.color ='orange';">Reizen</button>
 <button type="button" onclick="document.getElementsByTagName('h4')[j++].style.color ='orange';">Position</button>
-<h3><a href="skat.html"> Reset </a>
+<h3><a href="?"> Reset </a>
 </html>
- 
- 
+
+
