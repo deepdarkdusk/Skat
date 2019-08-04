@@ -1,3 +1,4 @@
 FROM gitpod/workspace-full
 
-RUN apt-get update && apt-get install zsh
+RUN apt-get update
+RUN apt-get install zsh
