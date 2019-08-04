@@ -11,10 +11,6 @@
 <a>63-</a><a>66-</a><a>70-</a><a>72-</a><a>77-</a><a>84-</a><a>96-</a><a>120-</a><a>144-</a><a>168-</a>
 
 <script>
-
-	
-
-
 var kreuz=0;
     pik=0;
     herz=0;
@@ -26,14 +22,13 @@ var kreuz=0;
     art='';
     code='';
     i=0;
-   
-
-	
+   	
 kreuz = prompt('Kreuz-Bube vorhanden=1 sonst=0', '0');
 pik = prompt('Pik-Bube vorhanden=1 sonst=0', '0');
 herz = prompt('Herz-Bube vorhanden=1 sonst=0', '0');
 karo = prompt('Karo-Bube vorhanden=1 sonst=0', '0');
 code = (kreuz+pik+herz+karo)
+
 if (kreuz > 0) {
     art = '  mit';
 } else {
@@ -87,8 +82,7 @@ switch (code) {
         break;
     case '0111':
         spiel = 1;
-        break;
-    
+        break;    
 }
 wert = (spiel + 1);
 hand = (wert +1);
@@ -98,12 +92,10 @@ document.getElementsByTagName('p')[0].innerHTML = 'Ihr Spiel lautet' +art + ' ' 
 document.getElementsByTagName('p')[1].innerHTML ='Solo-------> '+ 'Karo :' + (wert*9)+' | '+'Herz :' + wert*10 + ' | '+'Pik  :' + wert*11+' | '+'Kreuz :' + wert*12;
 document.getElementsByTagName('p')[2].innerHTML ='Hand------> '+ 'Karo :' + (hand*9)+' | '+'Herz :' + hand*10 + ' | '+'Pik  :' + hand*11+' | '+'Kreuz :' + hand*12;
 document.getElementsByTagName('p')[3].innerHTML ='Ouvert----> '+ 'Karo :' + (offen*9)+' | '+'Herz :' + offen*10 + ' | '+'Pik  :' + offen*11+' | '+'Kreuz :' + offen*12;
-
 document.getElementsByTagName('p')[4].innerHTML ='Grand-----> '+ 'Solo :' + (wert*24)+' | '+'Hand :' + hand*24 + ' | '+'Ouvert :' + offen*24;
 document.getElementsByTagName('p')[5].innerHTML ='Null--------> '+ 'Solo :23' + ' | '+'Hand :35' + ' | '+'Ouvert :46' +' | '+'Ouvert Hand :59' ;
 
 </script>
-
 <h3><div onclick="document.getElementsByTagName('a')[i++].style.color ='orange';"> switch </div></h3>
 <h3><a href="file:///storage/sdcard0/Dcoder/skat.html"> Reset </a>
 </html>
