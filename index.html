@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            
+        <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+        <script src="jquery/external/jquery/jquery.js"></script>
+        <script src="jquery/jquery-ui.min.js"></script>
+        <script>
+            
+            var kreuz="0";
+            var pik="0";
+            var herz="0";
+            var karo="0";
+            var spiel;
+            var wert;
+            var hand;
+            var schneider;
+            var schneideran;
+            var schwarz;
+            var schwarzan;
+            var offen;
+            var art='';
+            var code='';
+            var i=0;
+            var j=0;
+
+            
+        function rechnen() {
+            
+            
+            code = (kreuz+pik+herz+karo)
+            console.log(code);
+            if (kreuz > 0) {
+                art = '  mit';
+            } else {
+                art = ' ohne';
+            }
+
+
+
+            switch (code) {
+                case '1111':
+                    spiel = 4;
+                    break;
+                case '1110':
+                    spiel = 3;
+                    break;
+                case '1101':
+                    spiel = 2;
+                    break;
+                case '1100':
+                    spiel = 2;
+                    break;
+                case '1011':
+                    spiel = 1;
+                    break;
+                case '1010':
+                    spiel = 1;
+                    break;
+                case '1001':
+                    spiel = 1;
+                    break;
+                case '1000':
+                    spiel = 1;
+                    break;
+                case '0000':
+                    spiel = 4;
+                    break;
+                case '0001':
+                    spiel = 3;
+                    break;
+                case '0010':
+                    spiel = 2;
+                    break;
+                case '0011':
+                    spiel = 2;
+                    break;
+                case '0100':
+                    spiel = 1;
+                    break;
+                case '0101':
+                    spiel = 1;
+                    break;
+                case '0110':
+                    spiel = 1;
+                    break;
+                case '0111':
+                    spiel = 1;
+                    break;
+                
+            }
+            
+            wert = (spiel + 1);
+            hand = (wert +1);
+            schneider = (wert +2);
+            schneideran = (wert +3);
+            schwarz = (wert +4);
+            schwarzan =(wert +5);
+            offen = (wert +6);    
+            
+
+            document.getElementsByTagName('p')[0].innerHTML = 'Ihr Spiel lautet' +art + ' ' +spiel + ' Buben gespielt ' + wert;
+            document.getElementsByTagName('p')[1].innerHTML ='Solo------->'+ 'Karo :' + (wert*9)+' | '+'Herz :' + wert*10 + ' | '+'Pik  :' + wert*11+' | '+'Kreuz :' + wert*12;
+            document.getElementsByTagName('p')[2].innerHTML ='Hand------->'+ 'Karo :' + (hand*9)+' | '+'Herz :' + hand*10 + ' | '+'Pik  :' + hand*11+' | '+'Kreuz :' + hand*12;
+            document.getElementsByTagName('p')[3].innerHTML ='Schneider-->'+ 'Karo :' + (schneider*9)+' | '+'Herz :' + schneider*10 + ' | '+'Pik  :' + schneider*11+' | '+'Kreuz :' + schneider*12;
+            document.getElementsByTagName('p')[4].innerHTML ='Schneid.an->'+ 'Karo :' + (schneideran*9)+' | '+'Herz :' + schneideran*10 + ' | '+'Pik  :' + schneideran*11+' | '+'Kreuz :' + schneideran*12;
+            document.getElementsByTagName('p')[5].innerHTML ='Schwarz---_>'+ 'Karo :' + (schwarz*9)+' | '+'Herz :' + schwarz*10 + ' | '+'Pik  :' + schwarz*11+' | '+'Kreuz :' + schwarz*12;
+            document.getElementsByTagName('p')[6].innerHTML ='Schwarz.an->'+ 'Karo :' + (schwarzan*9)+' | '+'Herz :' + schwarzan*10 + ' | '+'Pik  :' + schwarzan*11+' | '+'Kreuz :' + schwarzan*12;
+            document.getElementsByTagName('p')[7].innerHTML ='Ouvert----->'+ 'Karo :' + (offen*9)+' | '+'Herz :' + offen*10 + ' | '+'Pik  :' + offen*11+' | '+'Kreuz :' + offen*12;
+            document.getElementsByTagName('p')[8].innerHTML ='Grand------>'+ 'Solo :' + (wert*24)+' | '+'Hand :' + hand*24 + ' | '+'Schn. :' + schneider*24 + ' | '+'SN.an :' + schneideran*24 + ' | '+'Schw. :' + schwarz*24 + ' | '+'SW.an :' + schwarzan*24+ ' | '+'Ouvert mit 4 :' + offen*24;
+            document.getElementsByTagName('p')[9].innerHTML ='Null------->'+ 'Solo :23' + ' | '+'Hand :35' + ' | '+'Ouvert :46' +' | '+'Ouvert Hand :59' ;
+        }
+        </script>
+        <script>
+            
+            $(function() {
+                // input felder vom typ checkbox und radio mit jquery-ui stylen
+                $( "input" ).checkboxradio({
+                    icon: false
+                });
+
+                // daten darstellen, bevor das erste checkbox change event
+                // getriggert wurde
+                rechnen();
+
+                // event an input felder binden, die in der tabelle mit dar
+                // klasse karten sind
+                // das onchange event wird an alle felder gebunden, die der selector
+                // $('span.karten input') ermittelt.
+                $('span.karten input').on('change', function(event) {
+                    if(this.checked == true) {
+                        console.log("Setze "+ this.name +" auf: "+ this.value);
+                        eval(this.name +" = String("+this.value +");");
+                    } else {
+                        console.log("Setze "+ this.name +" auf: 0");
+                        eval(this.name +"=String(0);");
+                    }
+                    // nach dem change event neu rechnen
+                    rechnen();
+                })
+
+            });
+        </script>
+    </head>
+    <body>
+    
+        <h3><p>x</p></h3>
+            <p>x</p><p>x</p><p>x</p>
+            <p>x</p><p>x</p><p>x</p>
+            <p>x</p><p>x</p><p>x</p>
+        <!--
+        <table class="karten">
+            <tr>
+                <th style="font-size: 20px"><label for="kreuzbox">♣</label></th>
+                <td><input type="checkbox" value=1 name="kreuz" id="kreuzbox" /></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px">♠</th>
+                <td><input type="checkbox" value=1 name="pik" /></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px; color: red">♥</th>
+                <td><input type="checkbox" value=1 name="herz" /></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px; color: red">♦</th>
+                <td><input type="checkbox" value=1 name="karo" /></td>
+            </tr>
+        </table>
+        -->
+
+        <span class="karten">
+            <label for="kreuzbox">♣</label>
+            <input type="checkbox" value="1" name="kreuz" id="kreuzbox" />
+
+            <label for="pikbox">♠</label>
+            <input type="checkbox" value="1" name="pik" id="pikbox" />
+
+            <label for="herzbox">♥</label>
+            <input type="checkbox" value="1" name="herz" id="herzbox" />
+
+            <label for="karobox">♦</label>
+            <input type="checkbox" value="1" name="karo" id="karobox" />
+        </span>
+
+<h5>|Geben|<h5>|Hören|<h5>|Sagen|<h5>|Weitersagen|</h5>
+<a>18-</a><a>20-</a><a>22-</a><a>23-</a><a>24-</a><a>27-</a><a>30-</a><a>33-</a><a>35-</a><a>36-</a>
+<a>40-</a><a>44-</a><a>45-</a><a>46-</a><a>48-</a><a>50-</a><a>54-</a><a>55-</a><a>59-</a><a>60-</a>
+<a>63-</a><a>66-</a><a>70-</a><a>72-</a><a>77-</a><a>80-</a><a>81-</a><a>84-</a><a>88-</a><a>90-</a><a>96-</a><a>99-</a>
+<a>100-</a><a>108-</a><a>110-</a><a>117-</a><a>120-</a>
+        <p></p>
+<a>121-</a><a>126-</a><a>130-</a><a>133-</a><a>135-</a>
+<a>140-</a><a>143-</a><a>144-</a><a>150-</a><a>153-</a><a>154-</a><a>156-</a><a>160-</a><a>162-</a><a>165-</a><a>168-</a>
+<a>170-</a><a>176-</a><a>180-</a><a>187-</a><a>192-</a><a>198-</a><a>204-</a><a>216-</a><a>240-</a><a>264-</a>
+<p></p>
+<button type="button" onclick="document.getElementsByTagName('a')[i++].style.color ='orange';">Reizen</button>
+<button type="button" onclick="document.getElementsByTagName('h5')[j++].style.color ='orange';">Position</button>
+<h3><a href="?"> Reset </a>
+
+    </body>
+</html>
+
+
